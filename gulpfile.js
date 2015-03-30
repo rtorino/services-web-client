@@ -33,7 +33,7 @@ var paths = {
     '!src/**/*.coffee',
     '!src/**/*.scss'
   ],
-  distDir: './dist/'
+  buildDir: './build/'
 };
 
 gulp.task('webpack', function(cb) {
@@ -50,14 +50,14 @@ gulp.task('webpack', function(cb) {
 
 gulp.task('other', function() {
   return gulp.src(paths.other)
-    .pipe(changed(paths.distDir))
-    .pipe(gulp.dest(paths.distDir));
+    .pipe(changed(paths.buildDir))
+    .pipe(gulp.dest(paths.buildDir));
 });
 
 var rimraf = require('rimraf');
 
 gulp.task('clearTarget', function() {
-  return rimraf.sync(paths.distDir, gutil.log);
+  return rimraf.sync(paths.buildDir, gutil.log);
 });
 
 gulp.task('build', ['clearTarget', 'webpack', 'other']);
@@ -67,7 +67,7 @@ gulp.task('watch', ['clearTarget', 'other'], function() {
   fs = require('fs');
   path = require('path');
   flo = require('fb-flo');
-  flo(paths.distDir, {
+  flo(paths.buildDir, {
     port: 8888,
     host: 'localhost',
     verbose: false,
@@ -81,7 +81,7 @@ gulp.task('watch', ['clearTarget', 'other'], function() {
     }
     return callback({
       resourceURL: url,
-      contents: fs.readFileSync(paths.distDir + filepath),
+      contents: fs.readFileSync(paths.buildDir + filepath),
       reload: reload
     });
   })
