@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var changed = require('gulp-changed');
 var gutil = require('gulp-util');
+var connect = require( 'gulp-connect' );
 
 // misc
 var spawn = require('child_process').spawn;
@@ -54,6 +55,12 @@ gulp.task('other', function() {
     .pipe(gulp.dest(paths.buildDir));
 });
 
+gulp.task('connect', function() {
+  connect.server( {
+    root : paths.buildDir
+  });
+});
+
 var rimraf = require('rimraf');
 
 gulp.task('clearTarget', function() {
@@ -61,6 +68,8 @@ gulp.task('clearTarget', function() {
 });
 
 gulp.task('build', ['clearTarget', 'webpack', 'other']);
+
+gulp.task( 'serve', [ 'connect', 'watch' ] );
 
 gulp.task('watch', ['clearTarget', 'other'], function() {
   var flo, fs, path;
