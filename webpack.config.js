@@ -27,10 +27,6 @@ module.exports = {
         loaders: ['style', 'css', "sass?includePaths[]=" + styleRoot]
       },
       {
-        test: /\.html$/,
-        loader: 'raw'
-      },
-      {
         test: /\.woff$/,
         loader: 'url?prefix=font/&limit=5000&mimetype=application/font-woff'
       },
@@ -75,5 +71,5 @@ module.exports = {
       'angular': 'exports?window.angular!bower/angular'
     })
   ],
-  devtool: 'eval'
+  devtool: '#source-map'
 };

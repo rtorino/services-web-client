@@ -5,10 +5,25 @@
     <title>mailer-web</title>
   </head>
   <body>
-    <h1>mailer-web</h1>
+  	<!-- NAVIGATION -->
+	<nav class="navbar navbar-inverse" role="navigation">
+	    <div class="navbar-header">
+	        <a class="navbar-brand" ui-sref="#">eskriMail</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	        <li class="active"><a ui-sref="email">Email</a></li>
+	        <li><a ui-sref="file">File</a></li>
+	        <li><a ui-sref="template">Template</a></li>
+	    </ul>
+	</nav>
 
-    <div ui-view></div>
+	<!-- MAIN CONTENT -->
+	<div class="container">
 
+	    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+	    <div ui-view></div>
+
+	</div>
     <script src="bundle.js" charset="utf-8"></script>
   </body>
 </html>
