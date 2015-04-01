@@ -1,2 +1,53 @@
-<h2> Welcome to the email page app </h2>
-<p class="main-lead">{{vm.greeting}}</p>
+	<!-- NAVIGATION -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>
+			 <span class="icon-bar"></span>
+			 <span class="icon-bar"></span>
+			 <span class="icon-bar"></span>
+
+			</button>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<div class="btn-compose pull-left">
+				<a type="button" class="btn btn-danger navbar-btn" ui-sref=".compose" role="tab" data-toggle="tab"> <span class="glyphicon glyphicon-pencil"></span> Compose</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li>
+					<a ui-sref=".inbox" role="tab" data-toggle="tab">
+						Inbox <span class="label label-success">10</span>
+					</a>
+				</li>
+				<li>
+					<a ui-sref=".sent" role="tab" data-toggle="tab">
+					Sent mail <span class="label label-info">10</span>
+					</a>
+				</li>
+				<li>
+					<a ui-sref=".draft" role="tab" data-toggle="tab">
+						Draft <span class="label label-warning">1</span>
+					</a>
+				</li>
+				<li>
+					<a ui-sref=".trash" role="tab" data-toggle="tab">
+						Trash <span class="label label-danger">100</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Username</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<div ui-view>
+	<div class="jumbotron text-center">
+		<h1>The EskrimaIL Page</h1>
+		<p>This page demonstrates <span class="text-danger">email </span> service.</p>
+	</div>
+</div>

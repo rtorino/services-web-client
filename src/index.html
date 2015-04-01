@@ -2,28 +2,45 @@
 
 <html>
   <head>
-    <title>mailer-web</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<title>EskrimaIL</title>
   </head>
   <body>
-  	<!-- NAVIGATION -->
-	<nav class="navbar navbar-inverse" role="navigation">
-	    <div class="navbar-header">
-	        <a class="navbar-brand" ui-sref="#">eskriMail</a>
-	    </div>
-	    <ul class="nav navbar-nav">
-	        <li class="active"><a ui-sref="email">Email</a></li>
-	        <li><a ui-sref="file">File</a></li>
-	        <li><a ui-sref="template">Template</a></li>
-	    </ul>
-	</nav>
-
-	<!-- MAIN CONTENT -->
 	<div class="container">
-
-	    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-	    <div ui-view></div>
-
+	<div class="row">
+		<div class="btn-group btn-group-justified">
+		   <div class="btn-group active">
+				<a ui-sref="email">
+					<button type="button" class="btn btn-nav">
+					<span class="glyphicon glyphicon-calendar"></span>
+					<p>Email Service</p>
+					</button>
+				</a>
+			</div>
+			<div class="btn-group">
+				<a ui-sref="file">
+					<button type="button" class="btn btn-nav">
+						<span class="glyphicon glyphicon-file"></span>
+						<p>File Service</p>
+					</button>
+				</a>
+			</div>
+			<div class="btn-group">
+				<a ui-sref="file">
+					<button type="button" class="btn btn-nav">
+						<span class="glyphicon glyphicon-leaf"></span>
+						<p><a ui-sref="template">Template Service</a></p>
+					</button>
+				</a>
+			</div>
+		</div>
 	</div>
-    <script src="bundle.js" charset="utf-8"></script>
+</div>
+	<ui-view></ui-view>
+	<script src="bundle.js" charset="utf-8"></script>
   </body>
 </html>
