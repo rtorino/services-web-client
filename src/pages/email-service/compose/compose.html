@@ -3,30 +3,33 @@
 		<div class="content-container clearfix">
 			<h1 class="content-title">{{vm.title}}</h1>
 			<div class="col-md-12">
-				<form name="composeEmail">
-					<div class="form-group">
-						<input id="tokenfield"
+				<form name="composeEmail" novalidate ng-submit="vm.submitForm()">
+					<div class="form-group"  ng-class="{ 'has-error' : composeEmail.from.$invalid && !composeEmail.from.$pristine }">
+						<input
 							type="email"
-							name="myEmail"
-							min-length="5"
-							max-lenth="100"
+							name="from"
+							ng-model="vm.mail.from"
+							class="form-control"
+							placeholder="From"
+							required />
+						<p ng-show="composeEmail.from.$invalid && !composeEmail.from.$pristine" class="help-block">Enter a valid email.</p>
+					</div>
+					<div class="form-group"  ng-class="{ 'has-error' : composeEmail.to.$invalid && !composeEmail.to.$pristine }">
+						<input
+							type="email"
+							name="to"
+							ng-model="vm.mail.to"
 							class="form-control"
 							placeholder="To"
 							required />
-							<div ng-if="composeEmail.myEmail.$invalid"> Invalid Email</div>
+						<p ng-show="composeEmail.to.$invalid && !composeEmail.to.$pristine" class="help-block">Enter a valid email.</p>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Cc" />
+						<input type="text" class="form-control" ng-model="vm.mail.subject" placeholder="Subject" />
 					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Bcc" />
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Subject" />
-					</div>
-					<textarea class="form-control" placeholder="message"></textarea>
+					<textarea class="form-control" ng-model="vm.mail.text"placeholder="Message"></textarea>
 					<div class="btn-send">
-						<button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
+						<button class="btn btn-success btn-lg" type="submit" ng-disabled="composeEmail.from.$pristine || composeEmail.from.$dirty && composeEmail.from.$invalid || composeEmail.to.$pristine || composeEmail.to.$dirty && composeEmail.to.$invalid" ><span class="glyphicon glyphicon-send"></span> Send</button>
 					</div>
 				</form>
 			</div>
