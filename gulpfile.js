@@ -105,4 +105,4 @@ gulp.task('watch', ['clearTarget', 'other'], function() {
   return gulp.watch(paths.other, ['other']);
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['serve']);
