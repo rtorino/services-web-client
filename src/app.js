@@ -1,6 +1,9 @@
 'use strict';
 
 require('angular-ui-router');
+require("bootstrap-webpack");
+require( 'script!../bower_components/angular-file-upload-binaryjs/angular-file-upload.js' );
+require( 'script!../node_modules/ng-file-upload/dist/angular-file-upload.js' );
 require( './pages/email-service' );
 require( './pages/email-service/inbox' );
 require( './pages/email-service/compose' );
@@ -14,6 +17,7 @@ require( './styles.css');
 angular.element(document).ready(function() {
 	var deps = [
 		'ui.router',
+		'ngFileUpload',
 		'app.email',
 		'app.file',
 		'app.template',

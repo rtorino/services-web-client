@@ -2,45 +2,40 @@
 
 <html>
   <head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<title>EskrimaIL</title>
   </head>
   <body>
 	<div class="container">
-	<div class="row">
-		<div class="btn-group btn-group-justified">
-		   <div class="btn-group active">
-				<a ui-sref="email">
-					<button type="button" class="btn btn-nav">
-					<span class="glyphicon glyphicon-calendar"></span>
-					<p>Email Service</p>
-					</button>
-				</a>
-			</div>
-			<div class="btn-group">
-				<a ui-sref="file">
-					<button type="button" class="btn btn-nav">
-						<span class="glyphicon glyphicon-file"></span>
-						<p>File Service</p>
-					</button>
-				</a>
-			</div>
-			<div class="btn-group">
-				<a ui-sref="file">
-					<button type="button" class="btn btn-nav">
-						<span class="glyphicon glyphicon-leaf"></span>
-						<p><a ui-sref="template">Template Service</a></p>
-					</button>
-				</a>
+		<div class="row">
+			<div class="btn-group btn-group-justified">
+			   <div class="btn-group active">
+					<a ui-sref="email">
+						<button type="button" class="btn btn-nav">
+						<span class="glyphicon glyphicon-calendar"></span>
+						<p>Email Service</p>
+						</button>
+					</a>
+				</div>
+				<div class="btn-group">
+					<a ui-sref="file">
+						<button type="button" class="btn btn-nav">
+							<span class="glyphicon glyphicon-file"></span>
+							<p>File Service</p>
+						</button>
+					</a>
+				</div>
+				<div class="btn-group">
+					<a ui-sref="template">
+						<button type="button" class="btn btn-nav">
+							<span class="glyphicon glyphicon-leaf"></span>
+							<p><a ui-sref="template">Template Service</a></p>
+						</button>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 	<ui-view></ui-view>
 	<script src="bundle.js" charset="utf-8"></script>
-		<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </body>
 </html>
