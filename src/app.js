@@ -12,6 +12,7 @@ require( './pages/email-service/draft' );
 require( './pages/email-service/trash' );
 require( './pages/file-service' );
 require( './pages/template-service' );
+require( './pages/template-service/editor' );
 require( './styles.css');
 
 angular.element(document).ready(function() {
@@ -21,6 +22,7 @@ angular.element(document).ready(function() {
 		'app.email',
 		'app.file',
 		'app.template',
+		'app.template.editor',
 		'app.email.inbox',
 		'app.email.compose',
 		'app.email.draft',
@@ -83,6 +85,12 @@ angular.element(document).ready(function() {
 						controller :'TemplateController',
 						controllerAs : 'vm'
 					})
+						.state('new', {
+							url: '/template/new',
+							templateUrl: 'template.editor.html',
+							controller: 'TemplateEditorController',
+							controllerAs: 'vm'
+						})
 			}
 		]);
 
