@@ -1,20 +1,21 @@
 <div class="container bg-white">
 	<h1 class="text-center">{{ editorMode }}</h1>
-	<form ng-controller="TemplateEditorController" class="form">
+	<form class="form">
 		<div class="form-group">
 			<label class="form-label" for="template-name">Name</label>
-			<input type="text" class="form-control" id="template-name" placeholder="Template Name">
+			<input type="text" class="form-control" id="template-name" placeholder="Template Name" ng-model="templateDetails.name">
 		</div>
 		<div class="form-group">
 			<label class="form-label" for="template-description">Description</label>
-			<input type="text" class="form-control" id="template-description" placeholder="Template Description">
+			<input type="text" class="form-control" id="template-description" placeholder="Template Description" ng-model="templateDetails.description">
 		</div>
 		<div class="form-group">
 			<label class="form-label" for="template-content">Content</label>
-			<textarea type="text" class="form-control" id="template-content" placeholder="Template Description"></textarea>
+			<text-angular class="form-control" id="template-content" placeholder="Template Description" ng-model="templateDetails.content"></text-angular>
 		</div>
 		<div class="form-group">
-			<input type="button" class="btn btn-primary pull-right" value="Create" ng-click="">
+			<input type="button" class="btn btn-primary pull-right" value="Create" ng-model="isCreateMode" ng-click="createNewTemplate()" ng-if="mode === 'create'">
+			<input type="button" class="btn btn-primary pull-right" value="Update" ng-model="isCreateMode" ng-click="updateTemplate()" ng-if="mode === 'edit'">
 			<div class="clearfix"></div>
 		</div>
 	</form>

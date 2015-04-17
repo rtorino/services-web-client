@@ -19,6 +19,8 @@
   "dependencies": {
     "angular": "~1.3.15",
     "angular-ui-router": "~0.2.13",
-    "angular-file-upload-binaryjs": "~1.1.3"
+    "angular-file-upload-binaryjs": "~1.1.3",
+    "angular-redactor": "~1.1.4",
+    "textAngular": "~1.3.11"
   }
 }

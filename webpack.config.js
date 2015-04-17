@@ -70,7 +70,8 @@ module.exports = {
       'bower_components'
     ],
     alias: {
-      bower: bowerRoot
+      bower: bowerRoot,
+      jQuery : 'jquery'
     },
     extensions: ['', '.js', '.scss', '.css'],
     root: appRoot
@@ -83,7 +84,11 @@ module.exports = {
     ], ['normal', 'loader']),
     new webpack.ContextReplacementPlugin(/.*$/, /a^/),
     new webpack.ProvidePlugin({
-      'angular': 'exports?window.angular!bower/angular'
+      'angular': 'exports?window.angular!bower/angular',
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
+      'hogan': 'hogan.js'
     })
   ],
   devtool: '#source-map'

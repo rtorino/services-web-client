@@ -57,7 +57,8 @@ gulp.task('other', function() {
 
 gulp.task('connect', function() {
   connect.server( {
-    root : paths.buildDir
+    root : paths.buildDir,
+    fallback: './src/index.html'
   });
 });
 

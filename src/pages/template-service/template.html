@@ -1,5 +1,25 @@
 <div class="container">
-	<h2> Welcome to the template page app </h2>
-	<p class="main-lead">{{vm.greeting}}</p>
-	<a ui-sref="new" class="btn btn-primary">New template</a>
+	<a ui-sref="create( { mode : 'create' } )" class="btn btn-primary pull-right">New template</a>
+	<div class="clearfix"></div>
+	<table class="table table-striped">
+		<thead>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Created At</th>
+			<th>Options</th>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr ng-repeat="template in templates">
+				<td>{{ template.name }}</td>
+				<td>{{ template.description }}</td>
+				<td>{{ template.createdAt }}</td>
+				<td>
+					<a ui-sref="view( { id : '{{ template.id }}', mode : 'view' } )">View</a>
+					<a ui-sref="edit( { id : '{{ template.id }}', mode : 'edit' } )">Edit</a>
+					<a href="" ng-click="deleteTemplate( template.id )">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

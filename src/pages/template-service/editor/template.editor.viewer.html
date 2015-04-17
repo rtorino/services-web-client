@@ -1,0 +1,23 @@
+<div class="container">
+	<h1 class="text-center">{{ editorMode }}</h1>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Dynamic data</h3>
+	  	</div>
+		<div class="panel-body">
+			<form class="form form-inline">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Name" ng-model="name">
+					<input type="text" class="form-control" placeholder="Company" ng-model="company">
+					<input type="text" class="form-control" placeholder="Product" ng-model="product">
+					<input type="text" class="form-control" placeholder="Expiry Date" ng-model="expiryDate">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body" ng-bind-html="templateDetails"></div>
+	</div>
+	<a class="btn btn-primary pull-right" ui-sref="edit( { id : '{{ templateId }}', mode : 'edit' } )">Edit template</a>
+	<div class="clearfix"></div>
+</div>

@@ -55,5 +55,8 @@
     "url-loader": "^0.5.5",
     "webpack": "^1.4.1-beta1",
     "webpack-core": "^0.4.8"
+  },
+  "dependencies": {
+    "hogan.js": "^3.0.2"
   }
 }

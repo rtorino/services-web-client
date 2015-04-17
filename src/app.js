@@ -1,7 +1,8 @@
 'use strict';
 
-require('angular-ui-router');
-require("bootstrap-webpack");
+require( 'angular-ui-router' );
+require( 'bootstrap-webpack' );
+require( 'jquery' );
 require( 'script!../bower_components/angular-file-upload-binaryjs/angular-file-upload.js' );
 require( 'script!../node_modules/ng-file-upload/dist/angular-file-upload.js' );
 require( './pages/email-service' );
@@ -13,7 +14,13 @@ require( './pages/email-service/trash' );
 require( './pages/file-service' );
 require( './pages/template-service' );
 require( './pages/template-service/editor' );
-require( './styles.css');
+require( './styles.css' );
+require( 'script!../bower_components/textAngular/dist/textAngular-sanitize.min.js' );
+require( 'script!../bower_components/textAngular/dist/textAngular-rangy.min.js' );
+require( 'script!../bower_components/textAngular/dist/textAngular.min.js' );
+require( '../bower_components/textAngular/src/textAngular.css' );
+require( '../bower_components/font-awesome/css/font-awesome.css' );
+require( 'hogan.js' );
 
 angular.element(document).ready(function() {
 	var deps = [
@@ -32,9 +39,10 @@ angular.element(document).ready(function() {
 
 	angular.module('app', deps)
 		.config([
-			'$stateProvider', '$urlRouterProvider',
-			function($stateProvider, $urlRouterProvider) {
+			'$stateProvider', '$urlRouterProvider', '$locationProvider',
+			function($stateProvider, $urlRouterProvider, $locationProvider) {
 				$urlRouterProvider.otherwise('/');
+				$locationProvider.html5Mode(true);
 
 				$stateProvider
 					.state('email', {
@@ -85,12 +93,24 @@ angular.element(document).ready(function() {
 						controller :'TemplateController',
 						controllerAs : 'vm'
 					})
-						.state('new', {
-							url: '/template/new',
+						.state('create', {
+							url: '/template/:mode',
 							templateUrl: 'template.editor.html',
 							controller: 'TemplateEditorController',
 							controllerAs: 'vm'
 						})
+						.state( 'edit', {
+							url: '/template/:id/edit',
+							templateUrl: 'template.editor.html',
+							controller: 'TemplateEditorController',
+							controllerAs: 'vm'
+						})
+						.state( 'view', {
+							url: '/template/:id/:mode',
+							templateUrl: 'template.editor.viewer.html',
+							controller: 'TemplateEditorController',
+							controllerAs: 'vm'
+						});
 			}
 		]);
 
